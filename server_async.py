@@ -13,6 +13,14 @@ async def handle_client(reader: asyncio.StreamReader, writer: asyncio.StreamWrit
 
     # 1. Leia os dados enviados pelo cliente (use 'await reader.read(1024)')
     # TODO: ...
+    data = await reader.read(1024)
+    if not data:
+        print(f"[{addr}] conexao fechada sem dados")
+        writer.close()
+        await writer.wait_closed()
+        return
+    msg = data.decode('utf-8')
+    print(f"[{addr}] recebeu: {msg}")
 
     # 2. Simule um processamento pesado SEM bloquear a thread principal.
     #    Use 'await asyncio.sleep(5)' — NÃO use 'time.sleep(5)'.
