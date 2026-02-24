@@ -37,8 +37,9 @@ async def handle_client(reader: asyncio.StreamReader, writer: asyncio.StreamWrit
 
     # 4. Feche a conexão (use 'writer.close()' e 'await writer.wait_closed()')
     # TODO: ...
-
-    print(f"[DESCONECTADO] {addr}")
+    writer.close()
+    await writer.wait_closed()
+    
 
 
 async def main():
