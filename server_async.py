@@ -31,6 +31,9 @@ async def handle_client(reader: asyncio.StreamReader, writer: asyncio.StreamWrit
 
     # 3. Envie a resposta ao cliente (use 'writer.write(...)' e 'await writer.drain()')
     # TODO: ...
+    resposta = f"dados: {msg}"
+    writer.write(resposta.encode('utf-8'))
+    await writer.drain()
 
     # 4. Feche a conexão (use 'writer.close()' e 'await writer.wait_closed()')
     # TODO: ...
