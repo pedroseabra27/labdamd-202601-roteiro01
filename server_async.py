@@ -27,6 +27,7 @@ async def handle_client(reader: asyncio.StreamReader, writer: asyncio.StreamWrit
     #    Entenda a diferença: time.sleep bloqueia a Thread; asyncio.sleep
     #    apenas suspende a corrotina e devolve o controle ao Event Loop.
     # TODO: ...
+    await asyncio.sleep(5)
 
     # 3. Envie a resposta ao cliente (use 'writer.write(...)' e 'await writer.drain()')
     # TODO: ...
