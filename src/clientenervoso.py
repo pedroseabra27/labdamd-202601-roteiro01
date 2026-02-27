@@ -12,8 +12,8 @@ def cliente_nervoso(id_cliente):
         # O TRUQUE: Timeout de 2 segundos.
         # Se o servidor (ou a fila do SO) não aceitar a conexão TCP
         # em 2 segundos, o cliente desiste e gera erro.
-        client.settimeout(2)
-        
+        client.settimeout(6)
+
         print(f"[CLIENTE {id_cliente:02d}] 🟡 Tentando entrar...")
         client.connect((HOST, PORT))
         
