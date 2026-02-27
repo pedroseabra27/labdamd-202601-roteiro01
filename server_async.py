@@ -48,11 +48,14 @@ async def main():
     """
     # Use asyncio.start_server() passando handle_client, HOST e PORT
     # TODO: ...
+    server = await asyncio.start_server(handle_client, HOST, PORT)
 
     print(f"[ASSÍNCRONO] Servidor rodando em {HOST}:{PORT} — Event Loop ativo.")
 
     # Mantenha o servidor rodando indefinidamente
     # TODO: ...
+    async with server:
+        await server.serve_forever()
 
 
 if __name__ == "__main__":
